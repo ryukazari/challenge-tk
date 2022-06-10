@@ -1,4 +1,5 @@
 ## GetMaxArea Challenge 
+- Node Version: `12>=`
 # commands to run
 - npm install
 - npm start (to start server in port 3000)
