@@ -10,16 +10,19 @@ const getMaxArea = (arr) => {
       index,
     }
   }).sort((a,b) => b.value - a.value)
-  let lastHigher = null;
+  let highers = [];
   return sortedArr.reduce((curr, val) => {
-    if(!lastHigher) {
-      lastHigher = val;
+    if(!highers) {
+      highers=[val];
       return curr;
     }
-    const minHigh = Math.min(val.value, lastHigher.value);
-    const width = Math.abs(val.index - lastHigher.index);
-    auxCurr = minHigh * width;
-    if(auxCurr > curr) curr = auxCurr;
+    for(let i = 0; i<highers.length; i++){
+      const minHigh = Math.min(val.value, highers[i].value);
+      const width = Math.abs(val.index - highers[i].index);
+      auxCurr = minHigh * width;
+      if(auxCurr > curr) curr = auxCurr;
+    }
+    highers.push(val);
     return curr;
   }, 0)
 }
