@@ -6,6 +6,12 @@ const getMaxAreaController = (req, res) => {
   res.json(maxArea);
 }
 
+const equalizeTeamSize = (req, res) => {
+  const { arreglo, k } = req.body;
+  res.json(challenges.equalizeTeamSize(arreglo, k));
+}
+
 module.exports = {
-  getMaxAreaController
+  getMaxAreaController,
+  equalizeTeamSize,
 }
